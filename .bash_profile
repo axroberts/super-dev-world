@@ -22,22 +22,20 @@ export JENKINS_USER=aroberts@toasttab.com
 export PATH=$PATH:~/.oktoast
 
 export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias ll="ls -laFG"
 
-alias uninstallToast="adb uninstall com.toasttab.pos"
-alias installToast=installToastApk
-alias assembleAPK="cd ~/toast/git-repos/toastmobile; ./gradlew assembleNormalDevelopmentDebug"
-alias aiAPK="assembleAPK; uninstallToast; installToast development"
-
-installToastApk() {
-	adb install /Users/axroberts/toast/git-repos/toastmobile/toast-android-pos/build/outputs/apk/normalDevelopment/debug/toast-android-pos-normal-$1-debug.apk
-}
+alias j11="export JAVA_HOME=$(/usr/libexec/java_home -v '11*')"
+alias j8="export JAVA_HOME=$(/usr/libexec/java_home -v '1.8*')"
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
 	    . `brew --prefix`/etc/bash_completion
-    fi
+fi
+
+eval "$(_DEV_FEATURE_FLAGS_COMPLETE=source dev-feature-flags)"
+eval "$(_TOAST_FEATURE_FLAGS_COMPLETE=source toast-feature-flags)"
 
 function _update_ps1() {
   PS1=$(powerline-shell $?)
