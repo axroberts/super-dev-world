@@ -29,7 +29,7 @@ set hlsearch
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set number relativenumber 
+set number relativenumber
 set nowrap
 set ruler
 set autoindent
@@ -80,4 +80,4 @@ nnoremap <CR> :call NumberToggle()<CR>
 "let [&nu, &rnu] = [!&rnu, &nu+&rnu==1]
 
 " set F2 to be the same as doing :set paste
-set pastetoggle=<F2>
+set pastetoggle=<F3>
