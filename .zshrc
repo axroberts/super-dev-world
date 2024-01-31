@@ -129,14 +129,7 @@ alias nebula-utils="docker run --rm -it \
 -v ~/.nebula_utils:/root/.nebula_utils/ \
 chewyinc-docker.jfrog.io/plat/nebula-utils:latest"
 
-aa() {
-  export TF_VAR_vsphere_username='aa-aroberts4@chewy.local'
-  export TF_VAR_vsphere_password=''
-}
-
 alias templating=python /Users/aroberts4/Source/chewy/p49/sre-tools/cicd-templating/app.py
-
-export HOMEBREW_GITHUB_API_TOKEN=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
 
 #NVM
 export NVM_DIR="$HOME/.nvm"
@@ -148,17 +141,13 @@ go_github() {
   open https://github.com/$(git config --get remote.origin.url | awk -F':' '{print $2}' | sed 's/.git//g')
 }
 
-#Artifactory
-export ARTIFACTORY_USER=aroberts4@chewy.com
-export ARTIFACTORY_PASSWORD=AKCp8jQwj8BPb7nfhUPpwqe8xkPgr63GQBKcf6pzaDYiWHtWwAimNwVTrEA9BHkmMBBgqozPH
-
 #Java
 alias j11="export JAVA_HOME=$(/usr/libexec/java_home -v11)"
 alias j8="export JAVA_HOME=$(/usr/libexec/java_home -v1.8)"
 
 #Python
-#export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-#export PATH="$PYENV_ROOT/shims:$PATH"
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export PATH="$PYENV_ROOT/shims:$PATH"
 eval "$(pyenv init --path)"
 
 #Add VSCode to path
